@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elizx Solutions - Construction & Sales</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+        }
+        /* Custom colors based on request: Purple and Blue */
+        .color-primary { background-color: #6B46C1; } /* Deep Purple */
+        .text-primary { color: #6B46C1; }
+        .color-secondary { background-color: #3182CE; } /* Vibrant Blue */
+        .text-secondary { color: #3182CE; }
+        .bg-gradient-header {
+            background: linear-gradient(135deg, #6B46C1 0%, #3182CE 100%);
+        }
+        /* Back to Top Button */
+        #backToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none; /* Hidden by default */
+            transition: opacity 0.3s, visibility 0.3s;
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Branding -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold text-primary">Elizx <span class="text-secondary">Solutions</span></a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-primary transition duration-300">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-primary transition duration-300">About</a>
+                    <a href="#services" class="text-gray-600 hover:text-primary transition duration-300">Services</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-primary transition duration-300">Testimonials</a>
+                    <a href="#blog" class="text-gray-600 hover:text-primary transition duration-300">Insights</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary transition duration-300">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#home" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+            <a href="#about" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+            <a href="#services" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a>
+            <a href="#testimonials" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Testimonials</a>
+            <a href="#blog" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Insights</a>
+            <a href="#contact" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+        </div>
+    </nav>
+
+    <!-- 1. Home Section (Hero) - Updated for Construction/Sales -->
+    <section id="home" class="bg-gradient-header text-white py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+                Building Excellence, Delivering Quality Construction & Sales
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
+                Elizx Solutions provides premier construction, project management, and quality material sales services for your next build.
+            </p>
+            <div class="space-x-4">
+                <a href="#services" class="inline-block px-8 py-3 bg-white text-primary font-semibold rounded-lg shadow-xl hover:bg-gray-100 transition duration-300 text-lg">
+                    View Projects
+                </a>
+                <a href="#contact" class="inline-block px-8 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary transition duration-300 text-lg">
+                    Request a Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery / Project Showcase -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6">Project Showcase & <span class="text-secondary">Materials</span></h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Filter the gallery to view recent construction projects or materials available for sale.</p>
+
+            <div class="flex justify-center mb-8 space-x-3">
+                <button class="px-4 py-2 rounded-lg bg-primary text-white filter-btn" data-filter="all">All</button>
+                <button class="px-4 py-2 rounded-lg border border-gray-200 filter-btn" data-filter="project">Construction Projects</button>
+                <button class="px-4 py-2 rounded-lg border border-gray-200 filter-btn" data-filter="material">Materials for Sale</button>
+            </div>
+
+            <div id="galleryGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Sample project items: replace image URLs with your own -->
+                <div class="rounded-lg overflow-hidden shadow-lg" data-category="project">
+                    <img src="https://placehold.co/600x400/6B46C1/ffffff?text=Project+1" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Residential Build — Phase I</h3>
+                        <p class="text-sm text-gray-600">New residential complex completed Q2 2025.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-lg overflow-hidden shadow-lg" data-category="material">
+                    <img src="https://placehold.co/600x400/3182CE/ffffff?text=Cement+Pallets" alt="Materials 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Premium Cement (Pallet)</h3>
+                        <p class="text-sm text-gray-600">High-strength cement available for bulk orders.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-lg overflow-hidden shadow-lg" data-category="project">
+                    <img src="https://placehold.co/600x400/6B46C1/ffffff?text=Project+2" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Commercial Renovation</h3>
+                        <p class="text-sm text-gray-600">Office space renovation — interior and exterior works.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-lg overflow-hidden shadow-lg" data-category="material">
+                    <img src="https://placehold.co/600x400/3182CE/ffffff?text=Tiles" alt="Materials 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Ceramic Tiles — 60x60</h3>
+                        <p class="text-sm text-gray-600">Durable finishing tiles for floors and walls.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-lg overflow-hidden shadow-lg" data-category="project">
+                    <img src="https://placehold.co/600x400/6B46C1/ffffff?text=Project+3" alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Bridge Repair Works</h3>
+                        <p class="text-sm text-gray-600">Structural reinforcement and resurfacing project.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-lg overflow-hidden shadow-lg" data-category="material">
+                    <img src="https://placehold.co/600x400/3182CE/ffffff?text=Paint+Buckets" alt="Materials 3" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800">Exterior Paint — 20L</h3>
+                        <p class="text-sm text-gray-600">Weather-resistant exterior paint in multiple colors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About Section - Updated for Construction/Sales -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">Our <span class="text-primary">Construction</span> Philosophy</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+                We are committed to delivering safe, timely, and structurally sound construction projects and reliable material sales.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- Updated Focus 1: Project Integrity -->
+                <div class="p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-primary">
+                    <svg class="w-10 h-10 text-primary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.102A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.056M4 12h16m-7-6v10m-2-10v10M4 18h16a2 2 0 002-2v-2a2 2 0 00-2-2H4a2 2 0 00-2 2v2a2 2 0 002 2z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Project Integrity</h3>
+                    <p class="text-gray-600">Prioritizing safety, quality craftsmanship, and on-time delivery across all project phases.</p>
+                </div>
+                <!-- Updated Focus 2: Skilled Craftsmanship (Kept old icon as it represents planning/plans well) -->
+                <div class="p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-secondary">
+                    <svg class="w-10 h-10 text-secondary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v13m-2-12h4m-4 4h4m-4 4h4m-2 4h-.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Skilled Craftsmanship</h3>
+                    <p class="text-gray-600">Our team comprises experienced builders, engineers, and project managers dedicated to excellence.</p>
+                </div>
+                <!-- Updated Focus 3: Value & Trust -->
+                <div class="p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-primary">
+                    <svg class="w-10 h-10 text-primary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243m10.606 0a2 2 0 110-2 2 2 0 010 2zm-10.606 0a2 2 0 110-2 2 2 0 010 2z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Value & Trust</h3>
+                    <p class="text-gray-600">We offer reliable services and quality construction materials at competitive, honest prices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Services Section - Updated for Construction/Sales -->
+    <section id="services" class="py-16 md:py-24 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">Our Core <span class="text-secondary">Services</span></h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+                Comprehensive construction, project management, and sales support for residential and commercial clients.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: Full-Cycle Construction Management -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:scale-[1.02]">
+                    <span class="p-3 color-primary rounded-full mb-4 inline-block">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7 2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h-3a1 1 0 01-1-1v-4m6 4v-7a2 2 0 00-2-2H9a2 2 0 00-2 2v7"></path></svg>
+                    </span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Full-Cycle Construction Management</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Handling projects from initial planning, permitting, execution, to final handover, ensuring quality and adherence to budget.</p>
+                    <a href="#contact" class="text-secondary hover:text-primary font-semibold text-sm">Get Started →</a>
+                </div>
+
+                <!-- Service 2: Quality Material & Property Sales -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:scale-[1.02]">
+                    <span class="p-3 color-secondary rounded-full mb-4 inline-block">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    </span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Quality Material & Property Sales</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Sourcing and supplying reliable construction materials, as well as managing property sales and acquisitions.</p>
+                    <a href="#contact" class="text-secondary hover:text-primary font-semibold text-sm">View Catalog →</a>
+                </div>
+
+                <!-- Service 3: Detailed Project Planning -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:scale-[1.02]">
+                    <span class="p-3 color-primary rounded-full mb-4 inline-block">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-4m-2 2h4m-4 6h10a2 2 0 002-2v-6a2 2 0 00-2-2H7a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
+                    </span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Detailed Project Planning</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Creating comprehensive architectural and structural plans, ensuring compliance and maximizing efficiency.</p>
+                    <a href="#contact" class="text-secondary hover:text-primary font-semibold text-sm">Request Drawings →</a>
+                </div>
+
+                <!-- Service 4: Site Visit & Consultation Booking -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:scale-[1.02]">
+                    <span class="p-3 color-secondary rounded-full mb-4 inline-block">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h.01M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Site Visit & Consultation Booking</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Easily schedule site assessments and professional consultations for your construction or sales needs (Booking System feature).</p>
+                    <a href="#contact" class="text-secondary hover:text-primary font-semibold text-sm">Book Site Visit →</a>
+                </div>
+
+                <!-- Service 5: Construction Portfolio & Visuals -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:scale-[1.02]">
+                    <span class="p-3 color-primary rounded-full mb-4 inline-block">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L14 16m-2-4l-4-4m5-4l4 4m0 0l-4 4m0 0l-4 4m0 0l-4 4m-4 0h16a2 2 0 002-2V8a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Construction Portfolio & Visuals</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">View high-quality images of our completed construction projects and materials for sale (Pictures of products feature).</p>
+                    <a href="#contact" class="text-secondary hover:text-primary font-semibold text-sm">View Gallery →</a>
+                </div>
+
+                <!-- Service 6: Post-Construction Support -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:scale-[1.02]">
+                    <span class="p-3 color-secondary rounded-full mb-4 inline-block">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.608 3.35 0z"></path></svg>
+                    </span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Post-Construction Support</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Offering ongoing maintenance guidance and support for both construction projects and material sales after final delivery.</p>
+                    <a href="#contact" class="text-secondary hover:text-primary font-semibold text-sm">Check Support Plans →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">What Our <span class="text-secondary">Clients Say</span></h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+                We take pride in our commitment to quality. Here's what our clients have to say about their experience with Elizx Solutions.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border-l-4 border-primary">
+                    <p class="text-gray-600 italic mb-6">"Elizx Solutions managed our commercial build from start to finish with incredible professionalism. Their attention to detail and commitment to the timeline was outstanding."</p>
+                    <div>
+                        <p class="font-bold text-gray-800">John D.</p>
+                        <p class="text-sm text-gray-500">Commercial Project Manager</p>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border-l-4 border-secondary">
+                    <p class="text-gray-600 italic mb-6">"The quality of the building materials we purchased was top-notch, and their sales team was knowledgeable and helpful. Highly recommended for any material sourcing."</p>
+                    <div>
+                        <p class="font-bold text-gray-800">Sarah K.</p>
+                        <p class="text-sm text-gray-500">Independent Contractor</p>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg border-l-4 border-primary">
+                    <p class="text-gray-600 italic mb-6">"From the initial consultation to the final handover, the team was transparent, reliable, and delivered a home that exceeded our expectations. A truly trustworthy builder."</p>
+                    <div>
+                        <p class="font-bold text-gray-800">Michael & Emily R.</p>
+                        <p class="text-sm text-gray-500">Residential Homeowners</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section: Material Estimator -->
+    <section id="calculator" class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Material Estimator</h2>
+            <p class="text-center text-gray-600 mb-8">Quickly estimate material quantity and cost for simple jobs (flooring or paint).</p>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Calculation Type</label>
+                        <select id="calcType" class="w-full p-3 border rounded">
+                            <option value="flooring">Flooring (area)</option>
+                            <option value="paint">Paint (coverage)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Unit Cost (per unit)</label>
+                        <input id="unitCost" type="number" min="0" step="0.01" class="w-full p-3 border rounded" placeholder="e.g. 3500" value="0">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Length (m)</label>
+                        <input id="length" type="number" min="0" step="0.01" class="w-full p-3 border rounded" placeholder="e.g. 5">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Width (m)</label>
+                        <input id="width" type="number" min="0" step="0.01" class="w-full p-3 border rounded" placeholder="e.g. 4">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Coverage (sqm per unit)</label>
+                        <input id="coverage" type="number" min="0.01" step="0.01" class="w-full p-3 border rounded" placeholder="e.g. tiles per box or litres per bucket" value="10">
+                    </div>
+
+                    <div class="flex items-end">
+                        <button id="calcBtn" class="w-full p-3 color-primary text-white rounded-lg">Calculate</button>
+                    </div>
+                </div>
+
+                <div id="calcResult" class="mt-6 hidden bg-gray-100 p-4 rounded">
+                    <p id="resultArea" class="text-gray-800 font-semibold"></p>
+                    <p id="resultUnits" class="text-gray-700"></p>
+                    <p id="resultCost" class="text-gray-700"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Blog/Updates Section (Updated for Construction/Sales) -->
+    <section id="blog" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">Construction <span class="text-primary">Insights</span></h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+                Stay updated with the latest in building technology, material innovations, and sales opportunities.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Insights Post 1 -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden border">
+                    <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/6B46C1/ffffff?text=Green+Building" alt="Placeholder image for green building strategy" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6B46C1/ffffff?text=Green+Building';">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-primary">Construction</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">5 Steps to Sustainable Building Practices</h3>
+                        <p class="text-gray-600 text-sm">Learn how modern builders are incorporating eco-friendly materials and techniques for green construction.</p>
+                    </div>
+                </div>
+                <!-- Insights Post 2 -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden border">
+                    <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/3182CE/ffffff?text=Materials+Pricing" alt="Placeholder image for material sales trends" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3182CE/ffffff?text=Materials+Pricing';">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-secondary">Sales</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Market Trends: Pricing for Quality Building Materials</h3>
+                        <p class="text-gray-600 text-sm">A deep dive into securing the best value for foundational and finishing materials in the current market.</p>
+                    </div>
+                </div>
+                <!-- Insights Post 3 -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden border">
+                    <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/6B46C1/ffffff?text=Project+Management" alt="Placeholder image for project management" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6B46C1/ffffff?text=Project+Management';">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-primary">Management</span>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Maximizing Project Timelines for Faster Completion</h3>
+                        <p class="text-gray-600 text-sm">Discover effective project management strategies to cut delays and ensure your build finishes on schedule.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-block px-8 py-3 bg-secondary text-white font-semibold rounded-lg shadow-lg hover:bg-primary transition duration-300 text-lg">
+                    Read More Insights
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Contact Section (Including mock Booking/Payment setup) -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">Get In <span class="text-secondary">Touch</span></h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Ready to start your construction project or inquire about materials? Fill out the form below.
+            </p>
+
+            <div class="bg-white p-8 md:p-12 rounded-xl shadow-2xl border-t-8 border-secondary">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Contact Form -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="mb-4">
+                                <label for="clientName" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                                <input type="text" id="clientName" name="clientName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="clientEmail" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <input type="email" id="clientEmail" name="clientEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150" required>
+                            </div>
+                                <div class="mb-4">
+                                    <label for="inquiryType" class="block text-sm font-medium text-gray-700 mb-1">Inquiry Type</label>
+                                    <select id="inquiryType" name="inquiryType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150">
+                                        <option value="construction">Construction</option>
+                                        <option value="sales">Sales</option>
+                                        <option value="consultation">Consultation</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="inquiryBudget" class="block text-sm font-medium text-gray-700 mb-1">Estimated Budget (optional)</label>
+                                    <input type="number" id="inquiryBudget" name="inquiryBudget" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150" placeholder="e.g. 500000">
+                                </div>
+                            <div class="mb-6">
+                                <label for="projectDetails" class="block text-sm font-medium text-gray-700 mb-1">Project Details / Inquiry</label>
+                                <textarea id="projectDetails" name="projectDetails" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-150" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full color-primary text-white font-semibold py-3 rounded-lg hover:bg-secondary transition duration-300 shadow-md hover:shadow-lg">
+                                Submit Request
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info & Booking/Payment Mock -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Contact & Bookings</h3>
+                        
+                        <!-- Contact Details (Kept the original Aruosa Tech details as per the form) -->
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"></path></svg>
+                                <p class="text-gray-700 font-medium">aruosatech360@gmail.com</p>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.5l1.62 4.05a.75.75 0 01-.2 1.05L7.8 9.2a.5.5 0 00-.01.7l2.5 2.5a.5.5 0 00.7-.01l1.8-1.57a.75.75 0 011.05-.2L19 15.5V19a2 2 0 01-2 2H5a2 2 0 01-2-2v-3.5"></path></svg>
+                                <p class="text-gray-700 font-medium">+234 705 829 3576</p>
+                            </div>
+                        </div>
+
+                        <!-- Mock Booking/Payment Button -->
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">Quick Links:</h4>
+                        <button onclick="showModal('bookingModal')" class="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-primary transition duration-300 shadow-md hover:shadow-lg mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h.01M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <span>Book a Site Visit / Consultation</span>
+                        </button>
+                        <button onclick="showModal('paymentModal')" class="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-secondary transition duration-300 shadow-md hover:shadow-lg">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                            <span>Make Upfront Payment (30%)</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" class="p-3 rounded-full color-primary text-white shadow-lg hover:bg-secondary focus:outline-none z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg font-semibold mb-2">Elizx Solutions</p>
+            <p class="text-sm text-gray-400">© 2025 Elizx Solutions. All rights reserved. | Powered by Aruosa Tech</p>
+        </div>
+    </footer>
+
+    <!-- Modal for Booking System (Mock) -->
+    <div id="bookingModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden items-center justify-center z-[100]">
+        <div class="bg-white p-6 md:p-8 rounded-xl shadow-3xl max-w-lg w-11/12">
+            <h3 class="text-2xl font-bold text-secondary mb-4">Integrated Booking System Mock</h3>
+            <p class="text-gray-700 mb-6">
+                *This is a functional placeholder.* In a live site, this section would integrate with a real-time scheduling tool like Calendly for booking **site visits or consultation calls**.
+            </p>
+            <p class="text-gray-700 mb-6">
+                **Book Your Site Visit/Consultation:** Choose a time slot below.
+            </p>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-150">Mon, 10:00 AM</button>
+                <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-150">Tue, 2:00 PM</button>
+                <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-150">Wed, 11:30 AM</button>
+                <button class="px-4 py-2 border border-gray-300 rounded-lg bg-primary text-white hover:bg-secondary transition duration-150">Thu, 9:00 AM (Selected)</button>
+            </div>
+            <button onclick="hideModal('bookingModal')" class="w-full color-primary text-white font-semibold py-3 rounded-lg hover:bg-secondary transition duration-300">
+                Close & Proceed
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal for Payment System (Mock) -->
+    <div id="paymentModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden items-center justify-center z-[100]">
+        <div class="bg-white p-6 md:p-8 rounded-xl shadow-3xl max-w-lg w-11/12">
+            <h3 class="text-2xl font-bold text-primary mb-4">Upfront Payment Gateway Mock</h3>
+            <p class="text-gray-700 mb-6">
+                *This is a functional placeholder.* This connects to a platform like Paystack or Stripe to process the **30% non-refundable upfront payment** mentioned in the agreement for project commencement or a large material order.
+            </p>
+            <div class="bg-gray-100 p-4 rounded-lg mb-6">
+                <p class="text-lg font-semibold text-gray-800">30% Upfront Payment Required</p>
+                <p class="text-sm text-gray-600">This ensures project commencement as per the agreement terms.</p>
+            </div>
+            <button onclick="hideModal('paymentModal')" class="w-full color-primary text-white font-semibold py-3 rounded-lg hover:bg-secondary transition duration-300">
+                Proceed to Secure Checkout
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle mobile menu visibility
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Simple modal control functions
+        function showModal(id) {
+            const modal = document.getElementById(id);
+            modal.style.display = 'flex';
+        }
+
+        function hideModal(id) {
+            const modal = document.getElementById(id);
+            modal.style.display = 'none';
+        }
+
+        // Simple form submission handler (prevents default and shows success message)
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Collect enhanced form fields
+            const name = document.getElementById('clientName').value;
+            const email = document.getElementById('clientEmail').value;
+            const inquiryType = document.getElementById('inquiryType') ? document.getElementById('inquiryType').value : 'general';
+            const budget = document.getElementById('inquiryBudget') ? document.getElementById('inquiryBudget').value : '';
+
+            // Here you would send the data to your backend or CRM.
+            const msg = `Inquiry submitted (${inquiryType}). We'll contact you shortly.`;
+            showSuccessMessage(msg);
+            this.reset(); // Clear the form
+        });
+
+        // Function to show a temporary success/status message
+        function showSuccessMessage(message) {
+            const existingMessage = document.getElementById('statusMessage');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+
+            const messageBox = document.createElement('div');
+            messageBox.id = 'statusMessage';
+            messageBox.className = 'fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-xl z-50 transition-all duration-300 opacity-0';
+            messageBox.textContent = message;
+            
+            document.body.appendChild(messageBox);
+            
+            // Show and then hide after a delay
+            setTimeout(() => {
+                messageBox.classList.remove('opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                messageBox.classList.add('opacity-0');
+                // Remove the element after transition completes
+                setTimeout(() => messageBox.remove(), 300);
+            }, 3000);
+        }
+
+        // Back to Top Button Logic
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopBtn.style.display = 'block';
+                setTimeout(() => { // Use timeout to allow CSS transition
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.visibility = 'visible';
+                }, 10);
+            } else {
+                backToTopBtn.style.opacity = '0';
+                backToTopBtn.style.visibility = 'hidden';
+                setTimeout(() => backToTopBtn.style.display = 'none', 300); // Hide after transition
+            }
+        };
+
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // Gallery filtering logic
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('#galleryGrid [data-category]');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                // update active button styles
+                filterButtons.forEach(b => b.classList.remove('bg-primary', 'text-white'));
+                btn.classList.add('bg-primary', 'text-white');
+
+                galleryItems.forEach(item => {
+                    const cat = item.getAttribute('data-category');
+                    if (filter === 'all' || cat === filter) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Simple calculator logic
+        function calculateMaterials() {
+            const type = document.getElementById('calcType').value;
+            const length = parseFloat(document.getElementById('length').value) || 0;
+            const width = parseFloat(document.getElementById('width').value) || 0;
+            const coverage = parseFloat(document.getElementById('coverage').value) || 1;
+            const unitCost = parseFloat(document.getElementById('unitCost').value) || 0;
+
+            const area = length * width; // sqm
+            const requiredUnits = Math.ceil(area / coverage);
+            const estCost = (requiredUnits * unitCost).toFixed(2);
+
+            document.getElementById('resultArea').textContent = `Total Area: ${area.toFixed(2)} sqm`;
+            document.getElementById('resultUnits').textContent = `Units Required: ${requiredUnits}`;
+            document.getElementById('resultCost').textContent = unitCost ? `Estimated Cost: ₦${estCost}` : '';
+            document.getElementById('calcResult').classList.remove('hidden');
+        }
+
+        document.getElementById('calcBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            calculateMaterials();
+        });
+    </script>
+</body>
+</html>
