@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Insights — Elizx Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="antialiased bg-white text-gray-800">
+  <header class="border-b">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+      <a href="index.html" class="font-semibold text-sm sm:text-base">Elizx Solutions</a>
+      <nav class="hidden sm:flex gap-4 lg:gap-6 text-sm">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="sm:hidden text-xs text-gray-600 space-x-2 flex">
+        <a href="index.html" class="hover:text-primary">Home</a>
+        <span>•</span>
+        <a href="projects.html" class="hover:text-primary">Projects</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <h1 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Insights & Articles</h1>
+    <p class="text-xs sm:text-sm text-gray-600 mb-6 sm:mb-8">Helpful articles on construction, business growth and product promotion.</p>
+
+    <article class="border rounded-lg p-4 sm:p-6 mb-4">
+      <h2 class="font-semibold text-sm sm:text-base"><a href="blog-post.html" class="hover:text-primary">5 Steps to Launch Your Product</a></h2>
+      <p class="text-xs sm:text-sm text-gray-600 mt-2">A short checklist to prepare for a successful product launch.</p>
+    </article>
+
+    <article class="border rounded-lg p-4 sm:p-6 mb-4">
+      <h2 class="font-semibold text-sm sm:text-base"><a href="blog-post.html" class="hover:text-primary">Managing Site Safety</a></h2>
+      <p class="text-xs sm:text-sm text-gray-600 mt-2">Key safety practices for construction managers.</p>
+    </article>
+
+    <article class="border rounded-lg p-4 sm:p-6">
+      <h2 class="font-semibold text-sm sm:text-base"><a href="blog-post.html" class="hover:text-primary">Market Analysis 101</a></h2>
+      <p class="text-xs sm:text-sm text-gray-600 mt-2">How to get useful market insights quickly and cheaply.</p>
+    </article>
+  </main>
+
+  <footer class="border-t py-4 sm:py-6 text-center text-xs sm:text-sm text-gray-600">© <span id="year">2025</span> Elizx Solutions</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
